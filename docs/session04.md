@@ -28,3 +28,31 @@
 
 - 継承で拡張性を高められる
 - 次回：SOLID原則でさらに責務を整理
+
+## 追加解説
+
+継承や抽象クラスを使って拡張性を高める方法を学ぶ回です。
+
+- **継承と`super()`**  
+  基底クラスの共通処理を`super()`で呼び出し、コードの重複を減らします。
+- **抽象クラスとインターフェース**  
+  `abc`モジュールを使って抽象メソッドを宣言し、派生クラスに実装を強制します。
+- **デバイス共通化の演習**  
+  モーターやアクチュエータなど異なるデバイスを共通インターフェースで扱うことを体験します。
+
+### 補足ポイント
+- **抽象クラスのPython例**
+  ```python
+  from abc import ABC, abstractmethod
+
+  class Actuator(ABC):
+      @abstractmethod
+      def move(self, value: float) -> None:
+          pass
+
+  class Motor(Actuator):
+      def move(self, value: float) -> None:
+          print(f"Motor rotates {value} degrees")
+  ```
+- **継承し過ぎの注意点**  
+  階層が深くなりすぎると理解しづらくなるため、共通化の度合いを見極める必要がある、と講義で触れます。
