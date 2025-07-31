@@ -33,3 +33,36 @@
 
 - 構造化によって見通しが良くなる
 - 次回：クラスとインスタンスでさらに整理する方法を学ぶ
+
+## 追加解説
+
+C言語と比較しながら、Pythonのモジュール設計を学ぶ回です。
+
+- **C言語とPythonの違い**  
+  Cではヘッダファイル(`.h`)で宣言し、実装ファイル(`.c`)で定義します。一方Pythonは`import`を使って関数やクラスを簡単に再利用できます。
+- **ファイル分割・import**  
+  `from package import module` などの基本的なimport文を整理し、複数ファイルに機能を分ける方法を確認。
+- **データと処理の分離**  
+  設定値用モジュールとロジック用モジュールを分け、責務を明確にします。
+
+### 補足ポイント
+- **C言語での例**
+  ```c
+  /* sensor.h */
+  double read_temperature(void);
+
+  /* sensor.c */
+  #include "sensor.h"
+  double read_temperature(void) {
+      /* 実装 */
+  }
+  ```
+  C言語ではヘッダと実装を分け、ビルド時にリンクする形式ですが、Pythonは下記のようにシンプルです。
+- **Pythonでの例**
+  ```python
+  # sensor.py
+  def read_temperature():
+      # 実装
+      return 25.0
+  ```
+  `import sensor` とするだけで関数を利用できる点を強調します。
